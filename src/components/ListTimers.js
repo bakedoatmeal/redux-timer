@@ -4,11 +4,8 @@ import TimerView from './TimerView';
 
 export default function ListTimers() {
   const timers = useSelector(state => state.timers.value);
-  const timerDisplay = timers.map((timer, i) => {
-    return (
-     <TimerView key={i} name={timer.name} time={timer.time} isRunning={timer.isRunning}/>
-    )
-  })
+  console.log(timers);
 
-  return <>{timerDisplay}</>;
+  const timersEl = timers.map((timer, i) => <TimerView key={`timer-${i}`} index={i} {...timer} />)
+  return <div>{timersEl}</div>
 }
